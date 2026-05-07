@@ -83,9 +83,26 @@
 <body>
   <header>
     <h1>Emma App</h1>
-    <p>Showcasing my work & products 🔥</p>
+    <p>Showcasing my work & products �</p>
   </header>
+  <button id="installBtn" style="display:none; position:fixed; bottom:20px; right:20px; z-index:999; padding:15px 20px; background:#4CAF50; color:white; border:none; border-radius:8px; font-size:16px; box-shadow:0 4px 8px rgba(0,0,0,0.3);">Install App</button>
 
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBtn').style.display = 'block';
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt = null;
+    document.getElementById('installBtn').style.display = 'none';
+  }
+});
+</script>
   <div class="feed">
     
     <!-- POST 1 - COPY THIS BLOCK TO ADD MORE POSTS -->
