@@ -1,5 +1,9 @@
-const CACHE_NAME = "tasks-v1";
-const urlsToCache = ["/", "/index.html"];
+const CACHE_NAME = "emma-app-v1";
+const urlsToCache = [
+  "/emma-app/",
+  "/emma-app/index.html",
+  "/emma-app/manifest.json"
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
